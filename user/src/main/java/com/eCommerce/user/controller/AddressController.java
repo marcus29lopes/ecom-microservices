@@ -1,6 +1,7 @@
 package com.eCommerce.user.controller;
 
 import com.eCommerce.user.model.Address;
+import com.eCommerce.user.response.AddressResponse;
 import com.eCommerce.user.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +17,9 @@ public class AddressController {
     AddressService addressService;
 
     @PostMapping(value = "/address/save")
-    public void addAddress(@RequestBody Address address) {
+    public AddressResponse addAddress(@RequestBody Address address) {
 
-        addressService.saveAddress(address);
+       return addressService.saveAddress(address);
 
     }
 }
